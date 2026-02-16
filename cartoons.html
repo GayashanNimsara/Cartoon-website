@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinhaToons - All Cartoons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                        dark: '#2d3436',
+                        light: '#f7f1e3'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f1e3;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="text-dark bg-light">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-primary flex items-center gap-2">
+                <i class="fa-solid fa-rocket"></i> SinhaToons
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-lg font-medium">
+                <a href="index.html" class="text-dark hover:text-secondary transition">Home</a>
+                <a href="cartoons.html"
+                    class="text-primary hover:text-secondary transition border-b-2 border-primary">Cartoons</a>
+                <a href="about.html" class="text-dark hover:text-secondary transition">About</a>
+                <a href="contact.html" class="text-dark hover:text-secondary transition">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl text-dark focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full left-0 top-full p-4 flex flex-col space-y-4"
+            id="mobile-menu">
+            <a href="index.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Home</a>
+            <a href="cartoons.html" class="block text-primary font-medium p-2 bg-gray-50 rounded">Cartoons</a>
+            <a href="about.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">About</a>
+            <a href="contact.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-primary text-white pt-32 pb-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-5xl font-bold mb-4">Explore Cartoons 📺</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90">Browse through our huge collection of Sinhala dubbed
+                cartoons. Action, comedy, adventure - we have it all!</p>
+
+            <!-- Search & Filter -->
+            <div class="mt-10 max-w-3xl mx-auto bg-white p-2 rounded-full shadow-lg flex flex-col md:flex-row gap-2">
+                <div class="flex-grow flex items-center px-4 bg-gray-100 rounded-full">
+                    <i class="fa-solid fa-search text-gray-400 mr-2"></i>
+                    <input type="text" id="searchInput" placeholder="Search cartoons..."
+                        class="bg-transparent w-full py-3 focus:outline-none text-dark">
+                </div>
+                <div class="flex gap-2 justify-center pt-2 md:pt-0">
+                    <button
+                        class="filter-btn active bg-secondary text-white px-6 py-2 rounded-full font-bold hover:bg-teal-500 transition"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn bg-white text-dark border border-gray-200 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition"
+                        data-filter="action">Action</button>
+                    <button
+                        class="filter-btn bg-white text-dark border border-gray-200 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition"
+                        data-filter="comedy">Comedy</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cartoon Grid -->
+    <section class="py-16 container mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="cartoon-grid">
+
+            <!-- Soora Pappa -->
+            <div
+                class="cartoon-card category-comedy category-adventure bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/aZ-vCuyxOXg/maxresdefault.jpg" alt="Soora Pappa"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Comedy</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Soora Pappa</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Asterix and Obelix take on the Romans in this
+                        classic Sinhala dubbed adventure.</p>
+                </div>
+            </div>
+
+            <!-- Koombichchi -->
+            <div
+                class="cartoon-card category-family category-adventure bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/7j5xEq1gxg4/hqdefault.jpg" alt="Koombichchi"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Adventure</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Koombichchi</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Maya the Bee explores the world with her friends.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pissu Poosa -->
+            <div
+                class="cartoon-card category-comedy bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMGUyNmQyZDItYmIzMC00NTA1LWE0MjYtMzIyYzU5OGU0OTQ4XkEyXkFqcGdeQXVyMTEwMTgwOTgy._V1_.jpg"
+                        alt="Pissu Poosa"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Comedy</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Pissu Poosa</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Top Cat and his gang causing trouble in the
+                        alley.</p>
+                </div>
+            </div>
+
+            <!-- Giripura Aththo -->
+            <div
+                class="cartoon-card category-comedy category-family bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2IzY2VhOTktZGM4MC00MjI3LTg2OTgtYzE2NzM1OTllMzI2XkEyXkFqcGdeQXVyMTA0MTM5OTE2._V1_FMjpg_UX1000_.jpg"
+                        alt="Giripura Aththo"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Comedy</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Giripura Aththo</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">The Flintstones, a modern stone-age family.</p>
+                </div>
+            </div>
+
+            <!-- Ben 10 -->
+            <div
+                class="cartoon-card category-action category-adventure bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Ben_10_%282005_TV_series%29_title_card.jpg/250px-Ben_10_%282005_TV_series%29_title_card.jpg"
+                        alt="Ben 10" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Action</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Ben 10</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Ben creates chaos with his Omnitrix!</p>
+                </div>
+            </div>
+
+            <!-- Dosthara Hoda Hitha -->
+            <div
+                class="cartoon-card category-adventure category-family bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/Hj0GCSyvKTI/hqdefault.jpg" alt="Dosthara Hoda Hitha"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Adventure</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Dosthara Hoda Hitha</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Dr. Dolittle talks to animals and goes on
+                        adventures.</p>
+                </div>
+            </div>
+
+            <!-- Scooby Doo -->
+            <div
+                class="cartoon-card category-comedy category-mystery bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTY3NTczMzQ1R15BMl5BanBnXkFtZTcwNDQ1MzQzMQ@@._V1_FMjpg_UX1000_.jpg"
+                        alt="Scooby Doo"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Mystery</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Scooby Doo</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">Scooby and the gang solve mysteries in the
+                        Mystery Machine.</p>
+                </div>
+            </div>
+
+            <!-- Tin Tin -->
+            <div
+                class="cartoon-card category-adventure category-action bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer">
+                <div class="relative h-60 bg-gray-200 overflow-hidden">
+                    <img src="https://m.media-amazon.com/images/I/91N21+00CBL._AC_UF1000,1000_QL80_.jpg" alt="Tin Tin"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-white text-4xl drop-shadow-lg"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Adventure</span>
+                    <h3 class="text-xl font-bold text-dark mt-1">Tin Tin</h3>
+                    <p class="text-gray-500 text-sm mt-2 line-clamp-2">The adventures of Tintin and his dog Snowy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-12 gap-2">
+            <button
+                class="w-10 h-10 rounded-full bg-primary text-white font-bold hover:bg-red-500 transition">1</button>
+            <button
+                class="w-10 h-10 rounded-full bg-white text-dark font-bold hover:bg-gray-100 transition border border-gray-200">2</button>
+            <button
+                class="w-10 h-10 rounded-full bg-white text-dark font-bold hover:bg-gray-100 transition border border-gray-200">3</button>
+            <button
+                class="w-10 h-10 rounded-full bg-white text-dark font-bold hover:bg-gray-100 transition border border-gray-200"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Footer implementation similar to index.html -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="text-3xl font-bold text-white flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-rocket text-primary"></i> SinhaToons
+                </a>
+                <p class="text-gray-400 max-w-sm">The best place to watch Sinhala dubbed cartoons online.</p>
+            </div>
+            <!-- ... links ... -->
+            <div>
+                <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+                    <li><a href="cartoons.html" class="hover:text-secondary transition">Cartoons</a></li>
+                    <li><a href="about.html" class="hover:text-secondary transition">About</a></li>
+                    <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            &copy; 2026 SinhaToons. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Simple client-side filtering logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.cartoon-card');
+            const searchInput = document.getElementById('searchInput');
+
+            // Category Filter
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-secondary', 'text-white');
+                        b.classList.add('bg-white', 'text-dark');
+                    });
+                    btn.classList.remove('bg-white', 'text-dark');
+                    btn.classList.add('bg-secondary', 'text-white');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    cards.forEach(card => {
+                        if (filter === 'all' || card.classList.contains(`category-${filter}`)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search Filter
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    if (title.includes(term)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

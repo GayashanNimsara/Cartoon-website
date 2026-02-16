@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinhaToons - Supiri Sinhala Cartoons</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                        dark: '#2d3436',
+                        light: '#f7f1e3'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f1e3;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka', sans-serif;
+        }
+        .hero-pattern {
+            background-color: #4ECDC4;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-2.21 0-4-1.79-4-4 0-3.314-2.686-6-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6zM32 26c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-2.21 0-4-1.79-4-4 0-3.314-2.686-6-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6zM42 22c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-2.21 0-4-1.79-4-4 0-3.314-2.686-6-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6zM52 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-2.21 0-4-1.79-4-4 0-3.314-2.686-6-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6-2.21 0-4-1.79-4-4-3.314 0-6-2.686-6-6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .blob-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(255, 107, 107, 0.4) 0%, rgba(255, 230, 109, 0.4) 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="text-dark">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-primary flex items-center gap-2">
+                <i class="fa-solid fa-rocket"></i> SinhaToons
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center text-lg font-medium">
+                <a href="index.html" class="text-primary hover:text-secondary transition">Home</a>
+                <a href="cartoons.html" class="text-dark hover:text-secondary transition">Cartoons</a>
+                <a href="about.html" class="text-dark hover:text-secondary transition">About</a>
+                <a href="contact.html" class="text-dark hover:text-secondary transition">Contact</a>
+                <a href="#featured" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-red-500 transition shadow-lg transform hover:scale-105">Watch Now <i class="fa-solid fa-play ml-2"></i></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-dark focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full left-0 top-full p-4 flex flex-col space-y-4" id="mobile-menu">
+            <a href="index.html" class="block text-primary font-medium p-2 hover:bg-gray-100 rounded">Home</a>
+            <a href="cartoons.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Cartoons</a>
+            <a href="about.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">About</a>
+            <a href="contact.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-pattern">
+        <div class="blob-bg top-0 left-0"></div>
+        <div class="blob-bg bottom-0 right-0 bg-secondary"></div>
+        
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center md:text-left space-y-6">
+                <span class="inline-block bg-accent px-4 py-1 rounded-full text-dark font-bold text-sm tracking-wide shadow-sm animate-bounce">
+                    New Episodes Available! 🚀
+                </span>
+                <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-lg leading-tight">
+                    Supiri <span class="text-accent">Sinhala</span> Cartoons
+                </h1>
+                <p class="text-xl text-white font-medium drop-shadow-md max-w-lg mx-auto md:mx-0">
+                    Watch all your favorite Sinhala dubbed cartoons in one place. Best quality, fast streaming, and totally free!
+                </p>
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="cartoons.html" class="bg-white text-primary px-8 py-3 rounded-full font-bold text-lg shadow-xl hover:bg-gray-100 transition transform hover:scale-105">
+                        Start Watching
+                    </a>
+                    <a href="#popular" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-white hover:text-secondary transition">
+                        Popular
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <!-- Using a placeholder SVG illustration for now since generation failed -->
+                <img src="https://img.freepik.com/free-vector/colorful-lettering-happy-kids_79603-903.jpg?w=996" alt="Cartoon Heroes" class="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl transform hover:rotate-2 transition duration-500 border-4 border-white">
+                <div class="absolute -bottom-10 -left-10 bg-white p-4 rounded-2xl shadow-xl animate-pulse hidden md:block">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-green-100 p-2 rounded-full text-green-500">
+                            <i class="fa-solid fa-check-circle text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-dark">HD Quality</p>
+                            <p class="text-sm text-gray-500">1080p Streaming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Cartoons Section -->
+    <section id="popular" class="py-20 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Trending Now 🔥</h2>
+                <p class="text-gray-600 text-lg">Most watched cartoons this week</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: Soora Pappa -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer border-2 border-transparent hover:border-secondary">
+                    <div class="relative h-64 bg-gray-200 overflow-hidden">
+                        <img src="https://i.ytimg.com/vi/aZ-vCuyxOXg/maxresdefault.jpg" alt="Soora Pappa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                            4.9 ★
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                             <a href="#" class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition"><i class="fa-solid fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Soora Pappa</h3>
+                        <p class="text-gray-500 text-sm mb-4">Action, Adventure, Comedy</p>
+                        <a href="#" class="block w-full text-center bg-secondary text-white py-2 rounded-xl font-bold hover:bg-teal-500 transition">Watch Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Koombichchi -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer border-2 border-transparent hover:border-secondary">
+                    <div class="relative h-64 bg-gray-200 overflow-hidden">
+                        <img src="https://i.ytimg.com/vi/7j5xEq1gxg4/hqdefault.jpg" alt="Koombichchi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                            4.7 ★
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                             <a href="#" class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition"><i class="fa-solid fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Koombichchi</h3>
+                        <p class="text-gray-500 text-sm mb-4">Family, Fun, Nature</p>
+                        <a href="#" class="block w-full text-center bg-secondary text-white py-2 rounded-xl font-bold hover:bg-teal-500 transition">Watch Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pissu Poosa -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer border-2 border-transparent hover:border-secondary">
+                     <div class="relative h-64 bg-gray-200 overflow-hidden">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMGUyNmQyZDItYmIzMC00NTA1LWE0MjYtMzIyYzU5OGU0OTQ4XkEyXkFqcGdeQXVyMTEwMTgwOTgy._V1_.jpg" alt="Pissu Poosa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                            4.8 ★
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                             <a href="#" class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition"><i class="fa-solid fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Pissu Poosa</h3>
+                        <p class="text-gray-500 text-sm mb-4">Comedy, Classic</p>
+                        <a href="#" class="block w-full text-center bg-secondary text-white py-2 rounded-xl font-bold hover:bg-teal-500 transition">Watch Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ben 10 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover transition duration-300 group cursor-pointer border-2 border-transparent hover:border-secondary">
+                    <div class="relative h-64 bg-gray-200 overflow-hidden">
+                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Ben_10_%282005_TV_series%29_title_card.jpg/250px-Ben_10_%282005_TV_series%29_title_card.jpg" alt="Ben 10" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-dark px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                            4.9 ★
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                             <a href="#" class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition"><i class="fa-solid fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Ben 10</h3>
+                        <p class="text-gray-500 text-sm mb-4">Action, Sci-Fi, Hero</p>
+                        <a href="#" class="block w-full text-center bg-secondary text-white py-2 rounded-xl font-bold hover:bg-teal-500 transition">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                 <a href="cartoons.html" class="inline-block border-2 border-secondary text-secondary px-8 py-3 rounded-full font-bold text-lg hover:bg-secondary hover:text-white transition">
+                    View All Cartoons <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+            <div class="p-8 rounded-3xl bg-red-50 hover:bg-red-100 transition duration-300">
+                <div class="bg-red-200 w-20 h-20 mx-auto rounded-full flex items-center justify-center text-primary text-3xl mb-6">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Fast Streaming</h3>
+                <p class="text-gray-600">No buffering, just pure entertainment. Watch your favorite cartoons instantly.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-teal-50 hover:bg-teal-100 transition duration-300">
+                <div class="bg-teal-200 w-20 h-20 mx-auto rounded-full flex items-center justify-center text-secondary text-3xl mb-6">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Mobile Friendly</h3>
+                <p class="text-gray-600">Optimized for phones and tablets. Take your cartoons wherever you go.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-yellow-50 hover:bg-yellow-100 transition duration-300">
+                <div class="bg-yellow-200 w-20 h-20 mx-auto rounded-full flex items-center justify-center text-yellow-600 text-3xl mb-6">
+                    <i class="fa-solid fa-closed-captioning"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-dark mb-4">Sinhala Dubbed</h3>
+                <p class="text-gray-600">All cartoons are fully dubbed in Sinhala for the best local experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="text-3xl font-bold text-white flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-rocket text-primary"></i> SinhaToons
+                </a>
+                <p class="text-gray-400 max-w-sm">
+                    The best place to watch Sinhala dubbed cartoons online. New episodes added daily!
+                </p>
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+                    <li><a href="cartoons.html" class="hover:text-secondary transition">Cartoons</a></li>
+                    <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4 text-sm">Subscribe to get updates on new episodes.</p>
+                <form class="flex flex-col gap-2">
+                    <input type="email" placeholder="Enter your email" class="bg-white/10 border border-gray-700 px-4 py-2 rounded-lg text-white focus:outline-none focus:border-secondary">
+                    <button class="bg-primary text-white py-2 rounded-lg font-bold hover:bg-red-500 transition">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+            &copy; 2026 SinhaToons. All rights reserved. Made with <i class="fa-solid fa-heart text-primary"></i> for Sinhala Kids.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

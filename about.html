@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinhaToons - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4',
+                        accent: '#FFE66D',
+                        dark: '#2d3436',
+                        light: '#f7f1e3'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Fredoka', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f1e3;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fredoka', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="text-dark bg-light">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-primary flex items-center gap-2">
+                <i class="fa-solid fa-rocket"></i> SinhaToons
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-lg font-medium">
+                <a href="index.html" class="text-dark hover:text-secondary transition">Home</a>
+                <a href="cartoons.html" class="text-dark hover:text-secondary transition">Cartoons</a>
+                <a href="about.html"
+                    class="text-primary hover:text-secondary transition border-b-2 border-primary">About</a>
+                <a href="contact.html" class="text-dark hover:text-secondary transition">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl text-dark focus:outline-none" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full left-0 top-full p-4 flex flex-col space-y-4"
+            id="mobile-menu">
+            <a href="index.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Home</a>
+            <a href="cartoons.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Cartoons</a>
+            <a href="about.html" class="block text-primary font-medium p-2 bg-gray-50 rounded">About</a>
+            <a href="contact.html" class="block text-dark font-medium p-2 hover:bg-gray-100 rounded">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <section class="min-h-screen pt-32 pb-20 container mx-auto px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="h-64 bg-secondary relative">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div
+                    class="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 bg-white p-2 rounded-full shadow-lg">
+                    <img src="https://img.freepik.com/free-vector/cute-astronaut-flying-rocket-cartoon-vector-icon-illustration-science-technology-icon-isolated_138676-4767.jpg"
+                        alt="Logo" class="w-32 h-32 rounded-full">
+                </div>
+            </div>
+
+            <div class="pt-20 pb-12 px-8 md:px-12 text-center">
+                <h1 class="text-4xl font-bold text-dark mb-6">Welcome to SinhaToons!</h1>
+                <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                    SinhaToons is Sri Lanka's premier destination for Sinhala dubbed cartoons.
+                    We grew up watching legendary cartoons like <strong>Soora Pappa</strong>,
+                    <strong>Koombichchi</strong>, and <strong>Pissu Poosa</strong>.
+                    Our mission is to bring that nostalgia back and provide a high-quality platform for the new
+                    generation to enjoy these classics.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 text-left mt-12">
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+                        <h3 class="text-xl font-bold text-primary mb-3"><i class="fa-solid fa-heart mr-2"></i> Our
+                            Passion</h3>
+                        <p class="text-gray-600">We love cartoons! Every show on our site is handpicked to ensure it
+                            brings joy, laughter, and good values to our audience.</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-2xl border border-teal-100">
+                        <h3 class="text-xl font-bold text-secondary mb-3"><i class="fa-solid fa-users mr-2"></i>
+                            Community</h3>
+                        <p class="text-gray-600">We are building a community of cartoon lovers. Join us, share your
+                            favorite moments, and request new shows!</p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-dark mb-4">Meet the Team</h3>
+                    <div class="flex justify-center gap-4">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-2 overflow-hidden">
+                                <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg"
+                                    alt="Admin" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-bold text-sm">Admin</p>
+                            <p class="text-xs text-gray-500">Creator</p>
+                        </div>
+                        <!-- Add more team members if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2026 SinhaToons. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
